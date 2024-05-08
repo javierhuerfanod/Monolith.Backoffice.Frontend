@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
               {
                 label: 'usuarios',
                 icon: 'pi pi-fw pi-user-plus',
-                routerLink: ['/modules/users/'],
+                routerLink: ['/usuarios/listar-usuarios/'],
               }
             ],
           }

@@ -20,6 +20,8 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -44,7 +46,10 @@ import { ToastModule } from 'primeng/toast';
     RippleModule,
     RouterModule,
     BreadcrumbModule,
-    ToastModule
+    ToastModule,
+    DialogModule,
+    ButtonModule,
+    PanelModule
   ],
   exports: [
     SidebarComponent,

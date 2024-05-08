@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './pages/layout/layout.module';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
-import { UserListComponent } from './src/app/pages/modules/users/components/user-list/user-list.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserListComponent
+    AppComponent,    
   ],
   imports: [
     CommonModule,    
@@ -20,6 +21,9 @@ import { UserListComponent } from './src/app/pages/modules/users/components/user
     BrowserModule,
     AppRoutingModule,
     ToastModule,    
+    DialogModule,
+    ButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

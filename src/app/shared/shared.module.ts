@@ -10,16 +10,18 @@ import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     ErrorPageComponent,
     LoadingComponent,
     ModalComponent,
-    TableComponent    
+    TableComponent   
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ToastModule,
     TableModule,
     ButtonModule,

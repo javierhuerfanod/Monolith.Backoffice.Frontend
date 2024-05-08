@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RequestPasswordComponent } from './components/request-password/request-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,8 +15,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RequestPasswordComponent,
     ResetPasswordComponent
   ],
-  imports: [
-    CommonModule
+  imports: [    
+    CommonModule,
+    HttpClientModule
   ]
 })
 export class AuthModule { }
