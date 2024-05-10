@@ -1,0 +1,78 @@
+<div class="card">
+    <p class="bold-text">Buscar peso:</p>
+    <input type="text" pInputText 
+    [(ngModel)]="valueSearch"
+    (keydown.enter)="loadDataTable()"
+    (keydown.space)="loadDataTable()"
+    (keyup)="onKeyUp($event)"
+    />
+    <div class="flex justify-content-center">
+        <div class="date-input">
+          <p class="bold-text">Fecha inicio</p>
+          <p-calendar [(ngModel)]="dateStart" [showButtonBar]="true"></p-calendar>
+        </div>
+        <div class="date-input">
+          <p class="bold-text">Fecha fin</p>
+          <p-calendar [(ngModel)]="dateEnd" [showButtonBar]="true"></p-calendar>
+        </div>       
+      </div>
+    <br/>
+    <p-table class="table"
+    [value]="userWeight"   
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:25%">Peso Id</th>
+                <th style="width:25%">Usuario Id</th>
+                <th style="width:25%">fecha</th>
+                <th style="width:25%">Valor del peso</th>
+                <th style="width:25%">Ver detalle</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-weight>
+            <tr>
+                <td>{{ weight.weightId }}</td>
+                <td>{{ weight.userId }}</td>
+                <td>{{ weight.date }}</td>
+                <td>{{ weight.weightValue }}</td>
+                <td>                    
+                    <a (click)="showDialog(weight.weightId)">
+                      <i class="pi pi-eye"></i>
+                    </a>
+                  </td>                  
+            </tr>
+        </ng-template>
+    </p-table>    
+    <p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [first]="1"
+    [rows]="pageSize" 
+    [totalRecords]="totalRecords" 
+    [rowsPerPageOptions]="[5, 10, 20]" />
+</div>
+
+    <p-dialog 
+    header="Detalle" 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+    [style]="{ width: '50vw' }" 
+    [draggable]="false" 
+    [resizable]="false">
+    <p>{{detailAnswerQuestion?.questionnaireDescription}}</p>
+    <table class="table">        
+        <thead>
+          <tr>
+            <th>Pregunta</th>
+            <th>Respuesta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let answer of detailAnswerQuestion?.answers">
+            <td class="response-cell">{{ answer.questionText }}</td>
+            <td class="response-cell">{{ answer.answer ? 'Sí' : 'No' }}</td>
+          </tr>
+        </tbody>
+      </table>      
+  </p-dialog>  

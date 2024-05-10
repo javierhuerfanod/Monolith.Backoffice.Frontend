@@ -1,0 +1,21 @@
+.breadcrumb-link {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: #0056b3; /* Color del texto del enlace */
+    font-weight: bold; /* Fuente en negrita */
+  }
+  
+  .breadcrumb-link:hover {
+    color: #0056b3; /* Cambia el color del texto del enlace al pasar el ratón sobre él */
+  }
+  
+  .breadcrumb-link:after {
+    content: '/';
+    margin-left: 5px; /* Espacio entre el texto del enlace y el separador */
+    margin-right: 5px; /* Espacio entre el separador y el siguiente elemento */
+    color: #0056b3; /* Color del separador */
+  }
+  
+  .breadcrumb-link:last-child:after {
+    content: ''; /* Elimina el separador después del último elemento */
+  }
+  

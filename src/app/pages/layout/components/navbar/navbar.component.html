@@ -32,30 +32,11 @@
       }"
     >      
       <button class="p-link layout-topbar-button"
+      pTooltip="Cerrar Sesion"
       (click)="showDialog()">
-        <i class="pi pi-user"></i>
+        <i class="pi pi-sign-out"></i>
         <span>Profile</span>
-      </button>
-      <button class="p-link layout-topbar-button">
-        <i class="pi pi-cog"></i>
-        <span>Settings</span>
-      </button>      
+      </button>           
         <p-toast></p-toast>        
     </div>
   </div>  
-
-  <p-dialog header="Iniciar sesión" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">    
-    <div class="flex align-items-center gap-3 mb-3">
-        <label for="email" class="font-semibold w-6rem">Correo</label>
-        <input pInputText id="email" class="flex-auto" autocomplete="off" [(ngModel)]="email" />
-    </div>
-    <div class="flex align-items-center gap-3 mb-5">
-        <label for="password" class="font-semibold w-6rem">Contraseña</label>
-        <input pInputText id="password" type="password" class="flex-auto" autocomplete="off" [(ngModel)]="password" />
-    </div>
-    <div class="flex justify-content-end gap-2">        
-        <p-button label="Cancelar"  [rounded]="true" severity="danger"(click)="visible = false"/>               
-        <p-button label="Iniciar sesión "  [rounded]="true" severity="info" (click)="saveData()"/>
-    </div>
-</p-dialog>
-

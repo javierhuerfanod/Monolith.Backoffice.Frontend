@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { LayoutService } from './pages/layout/services/layout.service';
@@ -10,9 +10,9 @@ import { NavbarComponent } from './pages/layout/components/navbar/navbar.compone
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit  {
   title = 'back-office-juegos-serios';
-
+  showLayout: boolean = true;
   overlayMenuOpenSubscription: Subscription;
 
   menuOutsideClickListener: any;
@@ -87,6 +87,24 @@ export class AppComponent implements OnDestroy {
       });
   }
 
+  ngOnInit() {   
+    this.updateShowLayout();
+  }
+
+  handleStorageChange(event: StorageEvent) {
+    // Verificar si el cambio de almacenamiento local afecta al token
+    if (event.key === 'token') {
+      this.updateShowLayout();
+    }
+  }
+
+  updateShowLayout() {
+    const token = localStorage.getItem('token');     
+    this.showLayout = !!token;
+  }
+  
+
+
   hideMenu() {
     this.layoutService.state.overlayMenuActive = false;
     this.layoutService.state.staticMenuMobileActive = false;
@@ -145,6 +163,9 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
+    window.removeEventListener('storage', this.handleStorageChange);
+    this.overlayMenuOpenSubscription.unsubscribe();
+
     if (this.overlayMenuOpenSubscription) {
       this.overlayMenuOpenSubscription.unsubscribe();
     }

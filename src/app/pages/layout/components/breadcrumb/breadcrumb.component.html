@@ -1,2 +1,12 @@
-<p-breadcrumb [model]="breadcrumbItems" [home]="{icon: 'pi pi-home'}"></p-breadcrumb>
-<br>
+<div class="card" style="height:10px; margin-bottom: 10px;">
+    <ng-container *ngFor="let item of breadcrumbItems" class="breadcrumb-container">
+        <span *ngIf="item.label; else lastItem" class="breadcrumb-item">
+          <a class="bold-text; " style="color:#000000;" [routerLink]="[item.url]">{{ item.label }} / </a>
+        </span>
+        <ng-template #lastItem>
+          <span class="breadcrumb-item">{{ item.label }}</span>
+        </ng-template>        
+      </ng-container>
+</div>
+
+  

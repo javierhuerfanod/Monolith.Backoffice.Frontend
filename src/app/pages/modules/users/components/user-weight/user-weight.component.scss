@@ -1,4 +1,17 @@
-.table {
+.date-input {
+    margin-right: 20px; /* Espacio entre los elementos */
+    text-align: center; /* Alineación del texto al centro */
+  }
+  
+  .bold-text {
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  .response-cell {
+    text-align: center;
+  }
+  
+  .table {
     width: 100%;
     border-collapse: collapse;
   }

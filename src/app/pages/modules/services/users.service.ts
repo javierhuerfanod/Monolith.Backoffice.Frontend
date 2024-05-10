@@ -15,7 +15,7 @@ export class UsersService {
 
   constructor(public http: HttpClient, public router?: Router) { }
 
-  getAllProductsPaginated(pageNumber:any, pageSize:any): Observable<ApiResponse<DataPaginated<any>>> {  
+  getAllUsersPaginated(pageNumber:any, pageSize:any): Observable<ApiResponse<DataPaginated<any>>> {  
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -23,6 +23,32 @@ export class UsersService {
     
     return this.http.get<ApiResponse<DataPaginated<any>>>(
       `${this.serviceBaseUrl}/api/v1/User/SearchPaginatedUsers?pageNumber=${pageNumber}&pageSize=${pageSize}`,
+      { headers: headers }
+    );
+  }
+
+  getSearchPaginatedWeightsPaginated(filter:any): Observable<ApiResponse<DataPaginated<any>>> {  
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    //'https://app-juegos-serios-javeriana-backoffice.azurewebsites.net/api/v1/Weight/SearchPaginatedWeights?userId=5&pageNumber=1&pageSize=10' \
+    //https://app-juegos-serios-javeriana-backoffice.azurewebsites.net/api/v1/Weight/SearchPaginatedWeights?userId=5&searchTerm=200&startDate=2023-01-01&endDate=2023-12-31&pageNumber=1&pageSize=10'
+    return this.http.get<ApiResponse<DataPaginated<any>>>(
+      `${this.serviceBaseUrl}/api/v1/Weight/SearchPaginatedWeights?userId=${filter.userId}&searchTerm=${filter.searchTerm}&startDate=${filter.startDate}&endDate=${filter.endDate}&pageNumber=${filter.pageNumber}&pageSize=${filter.pageSize}`,
+      { headers: headers }
+    );
+  }
+
+
+  getGetQuestionnaireAnswersByWeight(filter:any): Observable<ApiResponse<DataPaginated<any>>> {  
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });             
+         //'https://app-juegos-serios-javeriana-backoffice.azurewebsites.net/api/v1/QuestionnaireAnswer/GetQuestionnaireAnswersByWeight?userId=5&weightId=28' \ 
+    return this.http.get<ApiResponse<DataPaginated<any>>>(
+      `${this.serviceBaseUrl}/api/v1/QuestionnaireAnswer/GetQuestionnaireAnswersByWeight?userId=${filter.userId}&weightId=${filter.weightId}`,
       { headers: headers }
     );
   }

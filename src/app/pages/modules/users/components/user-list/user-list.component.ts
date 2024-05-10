@@ -20,10 +20,9 @@ export class UserListComponent implements OnInit {
   }
 
   loadDataTable(): void {
-    this.userService.getAllProductsPaginated(this.pageNumber, this.pageSize)
+    this.userService.getAllUsersPaginated(this.pageNumber, this.pageSize)
       .subscribe(
-        (data: any) => {
-          console.log('Petición:', data);
+        (data: any) => {          
           this.users = data?.data?.items || []; 
           this.totalRecords = data?.data?.totalCount || 0;
         },

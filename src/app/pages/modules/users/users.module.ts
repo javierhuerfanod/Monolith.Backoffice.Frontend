@@ -7,13 +7,23 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginatorModule } from 'primeng/paginator';
+import { UserWeightComponent } from './components/user-weight/user-weight.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 const routes: Routes = [
-  { path: '', component: UserListComponent } // Ruta por defecto dentro de /users
+  { path: '', component: UserListComponent },
+  { path: 'usuario-peso', component: UserWeightComponent }
 ];
 
 @NgModule({
   declarations: [
-    UserListComponent
+    UserListComponent,
+    UserWeightComponent,
+    UserDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +32,10 @@ const routes: Routes = [
     DialogModule,
     ButtonModule,
     PaginatorModule,
-    RouterModule.forChild(routes) // Importa las rutas definidas
+    FormsModule,
+    CalendarModule,
+    InputTextModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class UsersModule { }

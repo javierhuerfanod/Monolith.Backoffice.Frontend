@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
 import { LayoutService } from '../../services/layout.service';
 import { AuthService } from 'src/app/core/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +26,8 @@ export class NavbarComponent  implements OnInit{
   constructor(
     public layoutService: LayoutService,
     private messageService: MessageService,
-    private authService:AuthService) {}
+    private authService:AuthService,
+    private _router: Router) {}
 
 
   ngOnInit(): void {    
@@ -36,12 +38,11 @@ export class NavbarComponent  implements OnInit{
   }
 
   showDialog() {
-    this.visible = true;
+    const ruta = '/';    
+    this._router.navigate([ruta]);
   }
 
-  saveData() {    
-    console.log('Correo electrónico:', this.email);
-    console.log('Contraseña:', this.password);
+  saveData() {       
     this.visible = false;
     const credentials = {
      email:this.email,

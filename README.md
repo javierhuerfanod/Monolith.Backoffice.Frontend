@@ -1,27 +1,44 @@
-# Sakai
+# Nombre del Proyecto
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+Descripción breve del proyecto.
 
-## Development server
+## Tabla de Contenidos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
 
-## Code scaffolding
+## Instalación
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Instalar depedencias
 
-## Build
+```bash
+npm install
+ng build
+```
+Ejecutar proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng serve
+```
 
-## Running unit tests
+## Uso
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contribución
 
-## Running end-to-end tests
+Libreria primeng
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install primeng
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Licencia
+
+Acceso a los compoentes y recursos:
+- https://primeng.org/installation
+
+Uso de plantilla gratuita:
+- https://sakai.primeng.org/

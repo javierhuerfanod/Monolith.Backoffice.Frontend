@@ -31,7 +31,7 @@ import { ButtonModule } from 'primeng/button';
     FooterComponent,
     MenuComponent,
     BreadcrumbComponent,
-    MenuItemComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
@@ -49,14 +49,15 @@ import { ButtonModule } from 'primeng/button';
     ToastModule,
     DialogModule,
     ButtonModule,
-    PanelModule
+    PanelModule,
+    FormsModule
   ],
   exports: [
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
     MenuComponent,
-    BreadcrumbComponent,
+    BreadcrumbComponent    
   ],
 })
 export class LayoutModule {}

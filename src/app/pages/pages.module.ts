@@ -4,6 +4,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule, 
     PagesRoutingModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ],
 })
 export class PagesModule {}
