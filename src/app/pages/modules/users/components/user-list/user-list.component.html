@@ -19,10 +19,11 @@
                 <td>{{ user.lastName }}</td>
                 <td>{{ user.documentNumber }}</td>
                 <td>                    
-                    <a [routerLink]="['/usuarios', 'listar-usuarios', 'usuario-peso']" [queryParams]="{ userId: user.userId }">
-                      <i class="pi pi-eye"></i>
+                    <a [routerLink]="['/usuarios', 'listar-usuarios', 'usuario-peso']"
+                     [queryParams]="{ userId: user.userId,userName:user.firstName+'_'+ user.lastName }">
+                        <i class="pi pi-eye" style="font-size: 20px;"></i>
                     </a>
-                  </td>                  
+                  </td>
             </tr>
         </ng-template>
     </p-table>    

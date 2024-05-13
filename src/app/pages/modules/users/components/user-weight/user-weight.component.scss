@@ -38,3 +38,20 @@
   .response-cell {
     text-align: center;
   }
+
+  .flex {
+    display: flex;
+  }
+  
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .align-self-center {
+    align-self: end!important;
+  }
+
+  .mt-3 {
+    margin-top: 3px; /* Puedes ajustar el valor según lo necesites */
+  }
+  

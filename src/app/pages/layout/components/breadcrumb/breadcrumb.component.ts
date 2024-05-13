@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-import { filter } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -10,12 +11,21 @@ import { filter } from 'rxjs';
 })
 export class BreadcrumbComponent implements OnInit {
   breadcrumbItems: MenuItem[] = [];
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  mostrarBoton: boolean = true;
+  userNameFromUrl: string = ''; // Variable para almacenar el nombre de usuario de la URL
+
+  constructor(private router: Router,
+     private activatedRoute: ActivatedRoute,
+     private location: Location) {      
+     }
   
   ngOnInit(): void {
     this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd)).subscribe(() => {
       this.breadcrumbItems = this.createBreadcrumb(this.activatedRoute.root);
+      this.verificarURL();
+      this.getUserNameFromUrl(); // Obtener el nombre de usuario de la URL
     });
+    
   }
   
   private createBreadcrumb(route: ActivatedRoute, url: string = '', breadcrumbs: any[] = []): any[] {
@@ -35,6 +45,34 @@ export class BreadcrumbComponent implements OnInit {
       return this.createBreadcrumb(child, url, breadcrumbs);
     }
     return breadcrumbs;
+  }
+
+  verificarURL(): void {
+    const urlActual = this.location.path();
+    if (urlActual === '/usuarios') {
+      this.mostrarBoton = false;
+      this.userNameFromUrl='';
+    } else {
+      this.mostrarBoton = true;
+      if(urlActual === '/usuarios' ||urlActual === '/usuarios/listar-usuarios'){
+        this.userNameFromUrl='';
+      }
+    }
+  }
+  
+  // Método para obtener el nombre de usuario de la URL
+  getUserNameFromUrl(): void {
+    this.activatedRoute.queryParams.pipe(
+      map(params => params['userName'])
+    ).subscribe(userName => {
+      if (userName) {
+        this.userNameFromUrl = userName.replace(/_/g, ' ');
+      }
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

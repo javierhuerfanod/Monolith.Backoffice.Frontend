@@ -1,11 +1,4 @@
-<div class="card">
-    <p class="bold-text">Buscar peso:</p>
-    <input type="text" pInputText 
-    [(ngModel)]="valueSearch"
-    (keydown.enter)="loadDataTable()"
-    (keydown.space)="loadDataTable()"
-    (keyup)="onKeyUp($event)"
-    />
+<div class="card">      
     <div class="flex justify-content-center">
         <div class="date-input">
           <p class="bold-text">Fecha inicio</p>
@@ -14,16 +7,22 @@
         <div class="date-input">
           <p class="bold-text">Fecha fin</p>
           <p-calendar [(ngModel)]="dateEnd" [showButtonBar]="true"></p-calendar>
+        </div>
+        <div class="align-self-center mt-3">
+          <p-button icon="pi pi-search" (onClick)="searchDetail()" label="Buscar"></p-button>
         </div>       
       </div>
     <br/>
+    <div class="align-self-center mt-3">
+      <p-button icon="pi pi-refresh" (click)="clearFilter()" pTooltip="Actualizar"></p-button>
+    </div>
+    
     <p-table class="table"
     [value]="userWeight"   
     [tableStyle]="{ 'min-width': '50rem' }"
   >
         <ng-template pTemplate="header">
-            <tr>
-                <th style="width:25%">Peso Id</th>
+            <tr>                
                 <th style="width:25%">Usuario Id</th>
                 <th style="width:25%">fecha</th>
                 <th style="width:25%">Valor del peso</th>
@@ -31,8 +30,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-weight>
-            <tr>
-                <td>{{ weight.weightId }}</td>
+            <tr>               
                 <td>{{ weight.userId }}</td>
                 <td>{{ weight.date }}</td>
                 <td>{{ weight.weightValue }}</td>

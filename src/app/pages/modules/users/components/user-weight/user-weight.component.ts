@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-weight',
   templateUrl: './user-weight.component.html',
-  styleUrls: ['./user-weight.component.scss']
+  styleUrls: ['./user-weight.component.scss'],
+  providers: [DatePipe]
 })
 export class UserWeightComponent {
   userWeight:[];
   pageNumber = 1;
   pageSize = 10;
   totalRecords = 0;
-  dateStart: Date;
-  dateEnd: Date;
+  dateStart: any;
+  dateEnd: any;
   payload:any;
   userId:any;
   valueSearch:any;
@@ -21,7 +23,8 @@ export class UserWeightComponent {
   detailAnswerQuestion:any;
 
   constructor(private userService: UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -38,12 +41,30 @@ export class UserWeightComponent {
       this.loadDataTable();
     }
   }
+  searchDetail()
+  {
+    const fechaInicioFormateada = this.datePipe.transform(this.dateStart, 'yyyy-MM-dd');
+    const fechaFinFormateada = this.datePipe.transform(this.dateEnd, 'yyyy-MM-dd');
+
+    console.log('Fecha inicio formateada:', fechaInicioFormateada);
+    console.log('Fecha fin formateada:', fechaFinFormateada);
+    this.dateStart = fechaInicioFormateada;
+    this.dateEnd = fechaFinFormateada;
+    this.loadDataTable();
+  }
+
+  clearFilter(){
+    this.dateStart = '';
+    this.dateEnd = '';
+    this.loadDataTable();
+  }
+
 
   loadDataTable(): void {
     this.payload =
     {
       userId:this.userId,
-      searchTerm:this.valueSearch,
+      searchTerm:'',
       startDate:this.dateStart ?this.dateStart:'',
       endDate:this.dateEnd ?this.dateEnd:'',
       pageNumber:1,
