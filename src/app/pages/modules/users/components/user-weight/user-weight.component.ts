@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class UserWeightComponent {
-  userWeight:[];
+  userWeight:any[];
   pageNumber = 1;
   pageSize = 10;
   totalRecords = 0;
@@ -21,6 +21,7 @@ export class UserWeightComponent {
   valueSearch:any;
   visible:boolean;
   detailAnswerQuestion:any;
+  isAscending: boolean = true;
 
   constructor(private userService: UsersService,
     private route: ActivatedRoute,
@@ -109,5 +110,22 @@ export class UserWeightComponent {
         }
       );
   }
+
+
+  sortByDateAscending() {
+    this.isAscending = true;
+    this.userWeight.sort((a, b) => {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+  }
+
+  // Método para ordenar por fecha de manera descendente
+  sortByDateDescending() {
+    this.isAscending = false;
+    this.userWeight.sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+  }
+
 
 }

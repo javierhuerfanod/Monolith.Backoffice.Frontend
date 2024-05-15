@@ -1,4 +1,6 @@
 export interface UsersModel {
+  lastName?: string;
+  firstName?: string;
   items: {
     userId:         number;    
     firstName:      string;

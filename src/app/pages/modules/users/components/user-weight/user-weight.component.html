@@ -24,7 +24,10 @@
         <ng-template pTemplate="header">
             <tr>                
                 <th style="width:25%">Usuario Id</th>
-                <th style="width:25%">fecha</th>
+                <th style="width:25%">fecha 
+                  <button *ngIf="!isAscending" pButton icon="pi pi-sort-amount-up" style="width: 8px;height: 8px;" (click)="sortByDateAscending()"></button>
+                  <button *ngIf="isAscending" pButton icon="pi pi-sort-amount-down" style="width: 8px;height: 8px;" (click)="sortByDateDescending()"></button>
+                </th>
                 <th style="width:25%">Valor del peso</th>
                 <th style="width:25%">Ver detalle</th>
             </tr>

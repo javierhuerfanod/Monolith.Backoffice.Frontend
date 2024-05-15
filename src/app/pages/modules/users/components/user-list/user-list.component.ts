@@ -12,6 +12,8 @@ export class UserListComponent implements OnInit {
   pageNumber = 1;
   pageSize = 10;
   totalRecords = 0;
+  isAscendingFirstName: boolean = true;
+  isAscendingLastName: boolean = true;
 
   constructor(private userService: UsersService) {}
 
@@ -37,4 +39,56 @@ export class UserListComponent implements OnInit {
     this.pageSize = event.rows;
     this.loadDataTable();
   }
+  sortByFirstNameAscending() {
+    this.isAscendingFirstName = true;
+    this.users.sort((a, b) => {
+      if (a.firstName < b.firstName) {
+        return -1;
+      }
+      if (a.firstName > b.firstName) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  
+  sortByFirstNameDescending() {
+    this.isAscendingFirstName = false;
+    this.users.sort((a, b) => {
+      if (a.firstName < b.firstName) {
+        return 1;
+      }
+      if (a.firstName > b.firstName) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  
+  sortByLastNameAscending() {
+    this.isAscendingLastName = true;
+    this.users.sort((a, b) => {
+      if (a.lastName < b.lastName) {
+        return -1;
+      }
+      if (a.lastName > b.lastName) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  
+  sortByLastNameDescending() {
+    this.isAscendingLastName = false;
+    this.users.sort((a, b) => {
+      if (a.lastName < b.lastName) {
+        return 1;
+      }
+      if (a.lastName > b.lastName) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  
 }

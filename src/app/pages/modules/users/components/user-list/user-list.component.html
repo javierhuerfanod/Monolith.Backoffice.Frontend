@@ -6,8 +6,14 @@
         <ng-template pTemplate="header">
             <tr>
                 <th style="width:25%">Id</th>
-                <th style="width:25%">Primer Nombre</th>
-                <th style="width:25%">Segundo Nombre</th>
+                <th style="width:25%">Primer Nombre
+                    <button *ngIf="!isAscendingFirstName" pButton icon="pi pi-sort-amount-up" style="width: 8px;height: 8px;" (click)="sortByFirstNameAscending()"></button>
+                    <button *ngIf="isAscendingFirstName" pButton icon="pi pi-sort-amount-down" style="width: 8px;height: 8px;" (click)="sortByFirstNameDescending()"></button>
+                </th>
+                <th style="width:25%">Segundo Nombre
+                     <button *ngIf="!isAscendingLastName" pButton icon="pi pi-sort-amount-up" style="width: 8px;height: 8px;" (click)="sortByLastNameAscending()"></button>
+                    <button *ngIf="isAscendingLastName" pButton icon="pi pi-sort-amount-down" style="width: 8px;height: 8px;" (click)="sortByLastNameDescending()"></button>
+                  </th>
                 <th style="width:25%">Numero de documento</th>
                 <th style="width:25%">Acciones</th>
             </tr>
