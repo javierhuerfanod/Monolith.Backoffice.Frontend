@@ -31,9 +31,7 @@ export class UsersService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
-    });
-    //'https://app-juegos-serios-javeriana-backoffice.azurewebsites.net/api/v1/Weight/SearchPaginatedWeights?userId=5&pageNumber=1&pageSize=10' \
-    //https://app-juegos-serios-javeriana-backoffice.azurewebsites.net/api/v1/Weight/SearchPaginatedWeights?userId=5&searchTerm=200&startDate=2023-01-01&endDate=2023-12-31&pageNumber=1&pageSize=10'
+    });    
     return this.http.get<ApiResponse<DataPaginated<any>>>(
       `${this.serviceBaseUrl}/api/v1/Weight/SearchPaginatedWeights?userId=${filter.userId}&searchTerm=${filter.searchTerm}&startDate=${filter.startDate}&endDate=${filter.endDate}&pageNumber=${filter.pageNumber}&pageSize=${filter.pageSize}`,
       { headers: headers }

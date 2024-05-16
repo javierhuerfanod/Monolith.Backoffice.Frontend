@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
   totalRecords = 0;
   isAscendingFirstName: boolean = true;
   isAscendingLastName: boolean = true;
-
+  valueSearch:any;
   constructor(private userService: UsersService) {}
 
   ngOnInit(): void {
@@ -90,5 +90,38 @@ export class UserListComponent implements OnInit {
       return 0;
     });
   }
+
   
+  onKeyUp(event: KeyboardEvent) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    if(inputValue.length == 0 ||
+      (event.key === 'Delete')){
+        this.valueSearch = ''; 
+        this.loadDataTable();
+    }
+    if (
+      inputValue.length >1 ||
+      (event.key === 'Backspace' && inputValue.length == 0)
+    ) {
+      this.filterUsers();
+    }
+  }
+
+  filterUsers(): void {
+    if (this.valueSearch.trim()) {
+      this.users = this.users.filter(user =>
+        user.firstName.toLowerCase().includes(this.valueSearch.toLowerCase()) ||
+        user.lastName.toLowerCase().includes(this.valueSearch.toLowerCase())
+      );
+    } else {
+      this.users = this.users;
+    }
+  }
+  
+  clearFilter(){   
+    this.valueSearch = ''; 
+    this.loadDataTable();
+  }
+
+
 }

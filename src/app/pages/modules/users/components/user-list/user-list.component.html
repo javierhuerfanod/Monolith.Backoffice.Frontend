@@ -1,4 +1,15 @@
 <div class="card">
+    <p class="bold-text">Buscar:</p>
+    <input type="text" pInputText 
+           [(ngModel)]="valueSearch"
+           (keydown.enter)="filterUsers()"
+           (keydown.space)="filterUsers()"
+           (keyup)="onKeyUp($event)" />
+           <br>
+
+           <div class="align-self-center mt-3">
+            <p-button icon="pi pi-refresh" (click)="clearFilter()" pTooltip="Actualizar"></p-button>
+          </div>
     <p-table class="table"
     [value]="users"   
     [tableStyle]="{ 'min-width': '50rem' }"
