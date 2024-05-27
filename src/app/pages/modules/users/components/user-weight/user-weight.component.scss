@@ -1,0 +1,57 @@
+.date-input {
+    margin-right: 20px; /* Espacio entre los elementos */
+    text-align: center; /* Alineación del texto al centro */
+  }
+  
+  .bold-text {
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  .response-cell {
+    text-align: center;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th, .table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .table th {
+    background-color: #343a40; /* Color de fondo más oscuro para los encabezados */
+    color: #ffffff; /* Color de texto para los encabezados */
+  }
+
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+  }
+
+  .table tr:hover {
+    background-color: #e2e2e2; /* Color de fondo al pasar el ratón sobre la fila */
+  }
+
+  .response-cell {
+    text-align: center;
+  }
+
+  .flex {
+    display: flex;
+  }
+  
+  .justify-content-center {
+    justify-content: center;
+  }
+  
+  .align-self-center {
+    align-self: end!important;
+  }
+
+  .mt-3 {
+    margin-top: 3px; /* Puedes ajustar el valor según lo necesites */
+  }
+  

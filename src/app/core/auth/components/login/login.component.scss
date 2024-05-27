@@ -1,0 +1,73 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 50, 104, 0.6);
+    z-index: -1; /* Situar detrás del contenido */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .login-content {
+    position: relative;
+    z-index: 1; /* Situar sobre el fondo */
+    padding: 40px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center;    
+  }
+  
+  
+  .login-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #F8CD00;
+    border-radius: 5px;
+    color: #173268;
+  }
+  
+  .login-btn {
+    background-color: #F8CD00;
+    color: #173268;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .login-btn:hover {
+    background-color: #F5B800;
+  }
+  
+  .login-btn:focus {
+    outline: none; /* Evitar el borde de enfoque */
+  }
+  
+  /* Efecto de resaltado al pasar el mouse sobre el fondo */
+  .login-container:hover .login-background {
+    background-color: rgba(23, 50, 104, 0.8);/* Color de fondo más claro */
+  }
+  
+  
