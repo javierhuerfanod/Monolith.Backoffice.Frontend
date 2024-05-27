@@ -37,3 +37,25 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
+
+- stage: Deploy
+  displayName: Deploy to Azure Web App
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+      - job: Deploy
+        displayName: Deploy Web App Container
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: AzureRmWebAppDeployment@4
+            displayName: Deploy to Azure Web App
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Service Connection Juegos Serios Javeriana'
+              appType: 'webAppContainer'
+              WebAppName: 'App-Juegos-Serios-Javeriana-Backoffice-Frontend'
+              DockerNamespace: $(containerRegistry)
+              DockerRepository: $(imageRepository)
+              DockerImageTag: $(tag)
