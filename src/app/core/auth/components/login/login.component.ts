@@ -29,11 +29,9 @@ export class LoginComponent implements OnInit {
   
 
   login() {
-    const credentials = {
-      email: 'diegofdiazh@javeriana.edu.co',
-      password: 'Colombia123*'
-      //email: this.email,
-     // password: this.password
+    const credentials = {     
+      email: this.email,
+      password: this.password
     };
     this.authService.login(credentials);
     const ruta = '/usuarios';    

@@ -1,24 +1,27 @@
-# Use an official node image as the base
+# Stage 1: Build
 FROM node:16-alpine AS build
 
-# Set the working directory
+# Directorio donde se mantendrán los archivos de la app
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json files
+# Copiar el package.json y el package-lock.json en nuestro WORKDIR
 COPY package*.json ./
 
-# Install dependencies
+# Instalar dependencias
 RUN npm install
 
-# Copy the rest of the application code
+# Copiar todos los archivos
 COPY . .
 
-# Build the application
-RUN npm run build
+# Construir la aplicación lista para producción
+RUN npm run build --configuration=production
 
-# Stage 2
+# Stage 2: Run
 FROM nginx:1.17.1-alpine
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-COPY --from=build /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar desde la "Etapa" build el contenido de la carpeta build/
+# dentro del directorio indicado en nginx
+COPY --from=build /usr/src/app/dist/back-office-juegos-serios /usr/share/nginx/html
+
+# Exponer el puerto 80
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
