@@ -36,6 +36,9 @@ const routes: Routes = [
     CalendarModule,
     InputTextModule,
     RouterModule.forChild(routes)
+  ],
+  exports:[
+    RouterModule
   ]
 })
 export class UsersModule { }

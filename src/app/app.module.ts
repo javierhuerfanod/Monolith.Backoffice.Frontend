@@ -11,14 +11,15 @@ import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './core/auth/auth.module';
+import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,    
   ],
   imports: [
-    CommonModule,    
-    LayoutModule,
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ToastModule,    
@@ -26,7 +27,9 @@ import { AuthModule } from './core/auth/auth.module';
     ButtonModule,
     HttpClientModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    PagesModule,   
+    BrowserAnimationsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

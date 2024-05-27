@@ -6,7 +6,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { SidebarModule } from 'primeng/sidebar';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,19 +24,12 @@ import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
-  declarations: [
-    SidebarComponent,
-    NavbarComponent,
-    FooterComponent,
-    MenuComponent,
-    BreadcrumbComponent,
-    MenuItemComponent
+  declarations: [   
+    
   ],
-  imports: [
-    BrowserModule,
+  imports: [    
     FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+    HttpClientModule,    
     InputTextModule,
     SidebarModule,
     BadgeModule,
@@ -49,15 +41,9 @@ import { ButtonModule } from 'primeng/button';
     ToastModule,
     DialogModule,
     ButtonModule,
-    PanelModule,
-    FormsModule
+    PanelModule    
   ],
-  exports: [
-    SidebarComponent,
-    NavbarComponent,
-    FooterComponent,
-    MenuComponent,
-    BreadcrumbComponent    
+  exports: [       
   ],
 })
 export class LayoutModule {}
