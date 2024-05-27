@@ -5,9 +5,6 @@ WORKDIR /usr/src/app
 # Copiar el package.json y el package-lock en nuestro WORKDIR
 COPY package*.json ./
 
-# Copiar tu archivo .npmrc
-COPY .npmrc ./
-
 # Instalar dependencias
 RUN npm install
 # Copiar todos los archivos
