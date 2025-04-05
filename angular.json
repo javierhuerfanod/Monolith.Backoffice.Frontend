@@ -81,10 +81,10 @@
             "builder": "@angular-devkit/build-angular:dev-server",
             "configurations": {
               "production": {
-                "browserTarget": "back-office-juegos-serios:build:production"
+                "buildTarget": "back-office-juegos-serios:build:production"
               },
               "development": {
-                "browserTarget": "back-office-juegos-serios:build:development"
+                "buildTarget": "back-office-juegos-serios:build:development"
               }
             },
             "defaultConfiguration": "development"
@@ -92,7 +92,7 @@
           "extract-i18n": {
             "builder": "@angular-devkit/build-angular:extract-i18n",
             "options": {
-              "browserTarget": "back-office-juegos-serios:build"
+              "buildTarget": "back-office-juegos-serios:build"
             }
           },
           "test": {
