@@ -8,30 +8,23 @@ import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from './core/auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-@NgModule({
-  declarations: [
-    AppComponent,    
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    ToastModule,    
-    DialogModule,
-    ButtonModule,
-    HttpClientModule,
-    AuthModule,
-    FormsModule,
-    PagesModule,   
-    BrowserAnimationsModule 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+    ],
+    bootstrap: [AppComponent], imports: [CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        ToastModule,
+        DialogModule,
+        ButtonModule,
+        AuthModule,
+        FormsModule,
+        PagesModule,
+        BrowserAnimationsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

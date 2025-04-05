@@ -5,7 +5,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { PaginatorModule } from 'primeng/paginator';
 import { UserWeightComponent } from './components/user-weight/user-weight.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
@@ -18,27 +18,21 @@ const routes: Routes = [
   { path: 'usuario-peso', component: UserWeightComponent }
 ];
 
-@NgModule({
-  declarations: [
-    UserListComponent,
-    UserWeightComponent,
-    UserDetailComponent,
-    WelcomeComponent
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    TableModule,
-    DialogModule,
-    ButtonModule,
-    PaginatorModule,
-    FormsModule,
-    CalendarModule,
-    InputTextModule,
-    RouterModule.forChild(routes)
-  ],
-  exports:[
-    RouterModule
-  ]
-})
+@NgModule({ declarations: [
+        UserListComponent,
+        UserWeightComponent,
+        UserDetailComponent,
+        WelcomeComponent
+    ],
+    exports: [
+        RouterModule
+    ], imports: [CommonModule,
+        TableModule,
+        DialogModule,
+        ButtonModule,
+        PaginatorModule,
+        FormsModule,
+        CalendarModule,
+        InputTextModule,
+        RouterModule.forChild(routes)], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class UsersModule { }

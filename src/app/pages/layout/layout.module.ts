@@ -7,7 +7,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
 import { BadgeModule } from 'primeng/badge';
@@ -23,27 +23,18 @@ import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 
 
-@NgModule({
-  declarations: [   
-    
-  ],
-  imports: [    
-    FormsModule,
-    HttpClientModule,    
-    InputTextModule,
-    SidebarModule,
-    BadgeModule,
-    RadioButtonModule,
-    InputSwitchModule,
-    RippleModule,
-    RouterModule,
-    BreadcrumbModule,
-    ToastModule,
-    DialogModule,
-    ButtonModule,
-    PanelModule    
-  ],
-  exports: [       
-  ],
-})
+@NgModule({ declarations: [],
+    exports: [], imports: [FormsModule,
+        InputTextModule,
+        SidebarModule,
+        BadgeModule,
+        RadioButtonModule,
+        InputSwitchModule,
+        RippleModule,
+        RouterModule,
+        BreadcrumbModule,
+        ToastModule,
+        DialogModule,
+        ButtonModule,
+        PanelModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class LayoutModule {}

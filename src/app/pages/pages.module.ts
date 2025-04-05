@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PagesComponent } from './pages.component';
 import { LayoutModule } from './layout/layout.module';
@@ -24,43 +24,35 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
 import { SidebarModule } from 'primeng/sidebar';
 
-@NgModule({
-  declarations: [
-    PagesComponent,
-      SidebarComponent,
-      NavbarComponent,
-      FooterComponent,
-      MenuComponent,
-      BreadcrumbComponent,
-      MenuItemComponent    
-    
-  ],
-  imports: [    
-    CommonModule,
-    HttpClientModule, 
-    PagesRoutingModule,
-    DialogModule,
-    ButtonModule,
-    FormsModule,
-    ToastModule,
-    
-    InputTextModule,
-    SidebarModule,
-    BadgeModule,
-    RadioButtonModule,
-    InputSwitchModule,
-    RippleModule,
-    RouterModule,
-    BreadcrumbModule,
-    PanelModule
-  ],
-  exports: [
-    SidebarComponent,
-    NavbarComponent,
-    FooterComponent,
-    MenuComponent,
-    BreadcrumbComponent,
-    MenuItemComponent    
-  ],
-})
+@NgModule({ declarations: [
+        PagesComponent,
+        SidebarComponent,
+        NavbarComponent,
+        FooterComponent,
+        MenuComponent,
+        BreadcrumbComponent,
+        MenuItemComponent
+    ],
+    exports: [
+        SidebarComponent,
+        NavbarComponent,
+        FooterComponent,
+        MenuComponent,
+        BreadcrumbComponent,
+        MenuItemComponent
+    ], imports: [CommonModule,
+        PagesRoutingModule,
+        DialogModule,
+        ButtonModule,
+        FormsModule,
+        ToastModule,
+        InputTextModule,
+        SidebarModule,
+        BadgeModule,
+        RadioButtonModule,
+        InputSwitchModule,
+        RippleModule,
+        RouterModule,
+        BreadcrumbModule,
+        PanelModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class PagesModule {}
