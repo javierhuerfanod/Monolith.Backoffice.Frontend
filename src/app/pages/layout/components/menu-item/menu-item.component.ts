@@ -19,29 +19,21 @@ import { NavigationEnd, Router } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
 
 @Component({
-  selector: '[app-menu-item]',
-  templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.scss'],
-  animations: [
-    trigger('children', [
-      state(
-        'collapsed',
-        style({
-          height: '0',
-        })
-      ),
-      state(
-        'expanded',
-        style({
-          height: '*',
-        })
-      ),
-      transition(
-        'collapsed <=> expanded',
-        animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
-      ),
-    ]),
-  ],
+    selector: '[app-menu-item]',
+    templateUrl: './menu-item.component.html',
+    styleUrls: ['./menu-item.component.scss'],
+    animations: [
+        trigger('children', [
+            state('collapsed', style({
+                height: '0',
+            })),
+            state('expanded', style({
+                height: '*',
+            })),
+            transition('collapsed <=> expanded', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
+        ]),
+    ],
+    standalone: false
 })
 export class MenuItemComponent implements OnInit, OnDestroy {
   @Input() item: any;

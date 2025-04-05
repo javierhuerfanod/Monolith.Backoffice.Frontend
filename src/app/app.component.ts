@@ -6,9 +6,10 @@ import { SidebarComponent } from './pages/layout/components/sidebar/sidebar.comp
 import { NavbarComponent } from './pages/layout/components/navbar/navbar.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnDestroy, OnInit  {
   title = 'back-office-juegos-serios';

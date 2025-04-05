@@ -4,10 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-user-weight',
-  templateUrl: './user-weight.component.html',
-  styleUrls: ['./user-weight.component.scss'],
-  providers: [DatePipe]
+    selector: 'app-user-weight',
+    templateUrl: './user-weight.component.html',
+    styleUrls: ['./user-weight.component.scss'],
+    providers: [DatePipe],
+    standalone: false
 })
 export class UserWeightComponent {
   userWeight:any[];

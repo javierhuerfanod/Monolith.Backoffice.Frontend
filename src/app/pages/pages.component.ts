@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { LayoutService } from './layout/services/layout.service';
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+    selector: 'app-pages',
+    templateUrl: './pages.component.html',
+    styleUrls: ['./pages.component.scss'],
+    standalone: false
 })
 export class PagesComponent {
  constructor(  public layoutService: LayoutService){}

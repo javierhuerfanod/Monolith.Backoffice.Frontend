@@ -2,9 +2,10 @@ import { Component, ElementRef } from '@angular/core';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss'],
+    standalone: false
 })
 export class SidebarComponent {
   constructor(public layoutService: LayoutService, public el: ElementRef) {}

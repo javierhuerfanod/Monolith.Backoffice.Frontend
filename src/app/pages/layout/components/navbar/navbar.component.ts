@@ -5,10 +5,11 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  providers: [MessageService]
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss'],
+    providers: [MessageService],
+    standalone: false
 })
 export class NavbarComponent  implements OnInit{
   
