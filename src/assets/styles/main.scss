@@ -1,0 +1,10 @@
+@use './abstracts';
+@use './base';
+@use './components';
+@use './layout';
+@use './themes';
+
+body {
+  background-color: themes.$background-color;
+  color: themes.$text-color;
+}

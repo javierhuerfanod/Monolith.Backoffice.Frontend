@@ -1,0 +1,41 @@
+<div class="usuarios-container">
+    <h1>Gestión de Usuarios</h1>
+  
+    <!-- Formulario para agregar un nuevo usuario -->
+    <div class="formulario">
+      <h2>Agregar Usuario</h2>
+      <input type="text" [(ngModel)]="nuevoUsuario.nombre" placeholder="Nombre" />
+      <input type="email" [(ngModel)]="nuevoUsuario.email" placeholder="Email" />
+      <button (click)="agregarUsuario()">Agregar</button>
+    </div>
+  
+    <!-- Tabla de usuarios -->
+    <h2>Lista de Usuarios</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.id }}</td>
+          <td *ngIf="editandoUsuario?.id !== usuario.id">{{ usuario.nombre }}</td>
+          <td *ngIf="editandoUsuario?.id !== usuario.id">{{ usuario.email }}</td>
+          <td *ngIf="editandoUsuario?.id === usuario.id">
+            <input type="text" [(ngModel)]="editandoUsuario.nombre" />
+            <input type="email" [(ngModel)]="editandoUsuario.email" />
+          </td>
+          <td>
+            <button *ngIf="editandoUsuario?.id !== usuario.id" (click)="editarUsuario(usuario)">Editar</button>
+            <button *ngIf="editandoUsuario?.id === usuario.id" (click)="guardarEdicion()">Guardar</button>
+            <button *ngIf="editandoUsuario?.id === usuario.id" (click)="cancelarEdicion()">Cancelar</button>
+            <button (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

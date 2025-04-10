@@ -1,7 +1,7 @@
 @use '../abstracts' as abs;
 
-.footer {
-  background-color: abs.$secondary-color;
+.header {
+  background-color: abs.$primary-color;
   color: #fff;
   padding: abs.rem(16);
 }

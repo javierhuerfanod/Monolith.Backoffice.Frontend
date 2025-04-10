@@ -1,0 +1,39 @@
+<div class="outer-container">
+    <div class="login-container">
+      <div class="background-overlay"></div>
+      <div class="login-background"></div> 
+      <div class="login-content">   
+        <img src="../../../../../assets/images/descarga.png" alt="Imagen izquierda">           
+        <div>
+          
+            <form (ngSubmit)="onLogin()">
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <input type="email" name="email" [(ngModel)]="email" 
+                    [class.error]="emailError" required />
+                </div>
+                
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input type="password" name="password" 
+                    [(ngModel)]="password"
+                    [class.error]="passwordError" required />
+                </div>
+                
+            <div class="form-group">
+                        <re-captcha
+                        [siteKey]="recaptchaSiteKey"
+                        (resolved)="onRecaptchaResolved($event)"
+                        [class.error]="recaptchaError">
+                      </re-captcha>
+            </div>
+            <footer *ngIf="footerMessage" class="alert-footer">
+              {{ footerMessage }}
+            </footer>
+            <button type="submit">Ingresar</button>
+            </form>
+        </div>        
+      </div>
+    </div>
+  </div>
+  

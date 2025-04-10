@@ -1,0 +1,13 @@
+:host ::ng-deep .p-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+  }
+  
+  :host ::ng-deep .p-menuitem-link {
+    color: #007bff;
+  }
+  
+  :host ::ng-deep .p-menuitem-link:hover {
+    color: #0056b3;
+    background-color: #e9ecef;
+  }

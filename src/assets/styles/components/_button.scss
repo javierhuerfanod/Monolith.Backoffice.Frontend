@@ -1,0 +1,10 @@
+@use '../abstracts' as abs;
+
+.btn {
+  background-color: abs.$primary-color;
+  color: #fff;
+  padding: abs.rem(16) abs.rem(32);
+  border: none;
+  border-radius: abs.rem(4);
+  @include abs.center-flex;
+}

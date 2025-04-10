@@ -1,0 +1,7 @@
+@use '../abstracts' as abs;
+
+.card {
+  border: 1px solid abs.$secondary-color;
+  padding: abs.rem(16);
+  border-radius: abs.rem(8);
+}
