@@ -1,0 +1,18 @@
+<div class="card" style="height:10px; margin-bottom: 10px;">
+  <ng-container *ngFor="let item of breadcrumbItems" class="breadcrumb-container">
+    <span *ngIf="item.label; else lastItem" class="breadcrumb-item">
+      <a class="bold-text; " style="color:#000000;" [routerLink]="[item.url]">{{ item.label }} / </a>
+    </span>
+    <ng-template #lastItem>
+      <span class="breadcrumb-item">{{ item.label }}</span>
+    </ng-template>        
+  </ng-container>
+</div>
+<div *ngIf="mostrarBoton">  
+  <p-button icon="pi pi-arrow-left" (click)="goBack()" label="Regresar"></p-button>
+ 
+</div>
+<div *ngIf="userNameFromUrl" style=" text-align: center;font-weight: bold;">  
+  <p style="font-size: 28px;">Jugador: {{ userNameFromUrl }}</p>
+</div>
+<br>

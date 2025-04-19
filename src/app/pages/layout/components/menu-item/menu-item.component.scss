@@ -1,0 +1,22 @@
+.layout-menuitem-link {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Ajusta el espaciado según sea necesario */
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .layout-menuitem-icon {
+    font-size: 2em; /* Ajusta el tamaño del icono según sea necesario */
+    margin-right: 10px; /* Ajusta el espaciado entre el icono y el texto según sea necesario */
+  }
+  
+  .layout-menuitem-text {
+    font-size: 1.2em; /* Ajusta el tamaño del texto según sea necesario */
+  }
+  
+  .layout-submenu-toggler {
+    font-size: 1.5em; /* Ajusta el tamaño del icono del desplegable según sea necesario */
+    margin-left: auto; /* Empuja el icono del desplegable al extremo derecho */
+  }
+  

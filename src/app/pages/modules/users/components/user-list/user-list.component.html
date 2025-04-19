@@ -1,0 +1,53 @@
+<div class="card">
+    <p class="bold-text">Buscar:</p>
+    <input type="text" pInputText 
+           [(ngModel)]="valueSearch"
+           (keydown.enter)="filterUsers()"
+           (keydown.space)="filterUsers()"
+           (keyup)="onKeyUp($event)" />
+           <br>
+
+           <div class="align-self-center mt-3">
+            <p-button icon="pi pi-refresh" (click)="clearFilter()" pTooltip="Actualizar"></p-button>
+          </div>
+    <p-table class="table"
+    [value]="users"   
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:25%">Id</th>
+                <th style="width:25%">Primer Nombre
+                    <button *ngIf="!isAscendingFirstName" pButton icon="pi pi-sort-amount-up" style="width: 8px;height: 8px;" (click)="sortByFirstNameAscending()"></button>
+                    <button *ngIf="isAscendingFirstName" pButton icon="pi pi-sort-amount-down" style="width: 8px;height: 8px;" (click)="sortByFirstNameDescending()"></button>
+                </th>
+                <th style="width:25%">Segundo Nombre
+                     <button *ngIf="!isAscendingLastName" pButton icon="pi pi-sort-amount-up" style="width: 8px;height: 8px;" (click)="sortByLastNameAscending()"></button>
+                    <button *ngIf="isAscendingLastName" pButton icon="pi pi-sort-amount-down" style="width: 8px;height: 8px;" (click)="sortByLastNameDescending()"></button>
+                  </th>
+                <th style="width:25%">Numero de documento</th>
+                <th style="width:25%">Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.userId }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.documentNumber }}</td>
+                <td>                    
+                    <a [routerLink]="['/usuarios', 'listar-usuarios', 'usuario-peso']"
+                     [queryParams]="{ userId: user.userId,userName:user.firstName+'_'+ user.lastName }">
+                        <i class="pi pi-eye" style="font-size: 20px;"></i>
+                    </a>
+                  </td>
+            </tr>
+        </ng-template>
+    </p-table>    
+    <p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [first]="1"
+    [rows]="pageSize" 
+    [totalRecords]="totalRecords" 
+    [rowsPerPageOptions]="[5, 10, 20]" />
+</div>
