@@ -3,17 +3,19 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- Development
+
+- main
 
 resources:
 - repo: self
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '83ab480f-b1f5-4f55-aafb-66fb5f1ba637'
-  imageRepository: 'juegosseriosmonolithbackofficefrontend'
+  dockerRegistryServiceConnection: '8b910087-76c5-44fb-8ce9-c8940f59b9f0'
+  imageRepository: 'juegoseriosfrontend'
   containerRegistry: 'containerjuegosseriosjaveriana.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  dockerfilePath: '**/Dockerfile'
+
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
@@ -38,7 +40,6 @@ stages:
         tags: |
           $(tag)
 
-
 - stage: Deploy
   displayName: Deploy to Azure Web App
   dependsOn: Build
@@ -59,3 +60,4 @@ stages:
               DockerNamespace: $(containerRegistry)
               DockerRepository: $(imageRepository)
               DockerImageTag: $(tag)
+
