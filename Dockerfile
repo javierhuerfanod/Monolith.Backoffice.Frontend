@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build --configuration=production
 
 # Stage 2: Run
-FROM nginx:1.17.1-alpine
+FROM nginx:1.28.0-alpine
 
 # Copiar desde la "Etapa" build el contenido de la carpeta build/
 # dentro del directorio indicado en nginx
